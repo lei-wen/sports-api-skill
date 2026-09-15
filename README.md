@@ -26,13 +26,13 @@
 在已提供 `$skill-installer` 的 Codex 中发送：
 
 ```text
-使用 $skill-installer 从 GitHub 仓库 lei-wen/sports-api-skill 的 master 分支安装路径 sports-api-skill。
+使用 $skill-installer 从 GitHub 仓库 lei-wen/sports-api-skill 的 master 分支安装路径 sports-api-skill，并使用 git 安装方式。
 ```
 
 安装器应执行等价于以下参数的安装：
 
 ```text
---repo lei-wen/sports-api-skill --ref master --path sports-api-skill
+--repo lei-wen/sports-api-skill --ref master --path sports-api-skill --method git
 ```
 
 它会安装到：
