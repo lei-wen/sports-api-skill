@@ -1,0 +1,4 @@
+interface:
+  display_name: "玩法选项"
+  short_description: "调用玩法选项接口"
+  default_prompt: "使用 $sports-api-match-options 处理玩法选项请求。"

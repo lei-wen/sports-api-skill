@@ -1,0 +1,4 @@
+interface:
+  display_name: "选号分布"
+  short_description: "调用选号分布接口"
+  default_prompt: "使用 $sports-api-pick-distribution 处理选号分布请求。"

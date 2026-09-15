@@ -1,0 +1,4 @@
+interface:
+  display_name: "直播"
+  short_description: "调用直播接口"
+  default_prompt: "使用 $sports-api-match-live 处理直播请求。"

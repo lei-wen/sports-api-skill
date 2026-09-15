@@ -1,0 +1,4 @@
+interface:
+  display_name: "球队统计数据"
+  short_description: "调用球队统计数据接口"
+  default_prompt: "使用 $sports-api-team-stats 处理球队统计数据请求。"

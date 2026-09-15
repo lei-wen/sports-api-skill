@@ -1,0 +1,4 @@
+interface:
+  display_name: "世界杯球队榜"
+  short_description: "调用世界杯球队榜接口"
+  default_prompt: "使用 $sports-api-world-cup-team-leaderboard 处理世界杯球队榜请求。"

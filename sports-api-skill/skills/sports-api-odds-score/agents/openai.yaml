@@ -1,0 +1,4 @@
+interface:
+  display_name: "总进球数、比分、半全场"
+  short_description: "调用总进球数、比分、半全场接口"
+  default_prompt: "使用 $sports-api-odds-score 处理总进球数、比分、半全场请求。"

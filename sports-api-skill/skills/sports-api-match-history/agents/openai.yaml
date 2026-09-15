@@ -1,0 +1,4 @@
+interface:
+  display_name: "战绩"
+  short_description: "调用战绩接口"
+  default_prompt: "使用 $sports-api-match-history 处理战绩请求。"

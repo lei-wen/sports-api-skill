@@ -1,0 +1,4 @@
+interface:
+  display_name: "球队球员转会年份列表"
+  short_description: "调用球队球员转会年份列表接口"
+  default_prompt: "使用 $sports-api-team-transfer-years 处理球队球员转会年份列表请求。"

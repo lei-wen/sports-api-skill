@@ -1,0 +1,4 @@
+interface:
+  display_name: "球队资料"
+  short_description: "调用球队资料接口"
+  default_prompt: "使用 $sports-api-team-info 处理球队资料请求。"

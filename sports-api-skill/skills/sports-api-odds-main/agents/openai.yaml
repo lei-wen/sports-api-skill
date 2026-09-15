@@ -1,0 +1,4 @@
+interface:
+  display_name: "胜平负、让球、凯利"
+  short_description: "调用胜平负、让球、凯利接口"
+  default_prompt: "使用 $sports-api-odds-main 处理胜平负、让球、凯利请求。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "交易数据对比"
+  short_description: "调用交易数据对比接口"
+  default_prompt: "使用 $sports-api-trade-ratio 处理交易数据对比请求。"

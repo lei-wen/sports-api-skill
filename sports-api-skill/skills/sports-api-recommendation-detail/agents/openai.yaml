@@ -1,0 +1,4 @@
+interface:
+  display_name: "推荐详情"
+  short_description: "调用推荐详情接口"
+  default_prompt: "使用 $sports-api-recommendation-detail 处理推荐详情请求。"

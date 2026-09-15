@@ -1,0 +1,4 @@
+interface:
+  display_name: "阵容"
+  short_description: "调用阵容接口"
+  default_prompt: "使用 $sports-api-match-lineup 处理阵容请求。"

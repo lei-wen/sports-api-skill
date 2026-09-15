@@ -1,0 +1,4 @@
+interface:
+  display_name: "竞猜赛程"
+  short_description: "调用竞猜赛程接口"
+  default_prompt: "使用 $sports-api-match-list 处理竞猜赛程请求。"

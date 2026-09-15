@@ -1,0 +1,4 @@
+interface:
+  display_name: "世界杯分组与积分"
+  short_description: "调用世界杯分组与积分接口"
+  default_prompt: "使用 $sports-api-world-cup-standings 处理世界杯分组与积分请求。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "球队球员"
+  short_description: "调用球队球员接口"
+  default_prompt: "使用 $sports-api-team-players 处理球队球员请求。"

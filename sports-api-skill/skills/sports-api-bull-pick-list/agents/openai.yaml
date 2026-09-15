@@ -1,0 +1,4 @@
+interface:
+  display_name: "牛单推荐"
+  short_description: "识别牛单推荐文档缺口"
+  default_prompt: "使用 $sports-api-bull-pick-list 处理牛单推荐请求。"

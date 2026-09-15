@@ -1,0 +1,4 @@
+interface:
+  display_name: "赛果开奖（按比赛ID查询）"
+  short_description: "调用赛果开奖（按比赛ID查询）接口"
+  default_prompt: "使用 $sports-api-match-prize-by-id 处理赛果开奖（按比赛ID查询）请求。"

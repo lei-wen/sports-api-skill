@@ -1,0 +1,4 @@
+interface:
+  display_name: "世界杯淘汰赛晋级图"
+  short_description: "调用世界杯淘汰赛晋级图接口"
+  default_prompt: "使用 $sports-api-world-cup-bracket 处理世界杯淘汰赛晋级图请求。"

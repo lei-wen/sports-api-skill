@@ -1,0 +1,4 @@
+interface:
+  display_name: "球队赛程"
+  short_description: "调用球队赛程接口"
+  default_prompt: "使用 $sports-api-team-games 处理球队赛程请求。"

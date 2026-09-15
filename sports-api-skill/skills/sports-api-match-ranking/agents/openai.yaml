@@ -1,0 +1,4 @@
+interface:
+  display_name: "排名"
+  short_description: "调用排名接口"
+  default_prompt: "使用 $sports-api-match-ranking 处理排名请求。"

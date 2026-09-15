@@ -1,0 +1,4 @@
+interface:
+  display_name: "指数详情（胜平负、让球、凯利）"
+  short_description: "调用指数详情（胜平负、让球、凯利）接口"
+  default_prompt: "使用 $sports-api-odds-main-detail 处理指数详情（胜平负、让球、凯利）请求。"

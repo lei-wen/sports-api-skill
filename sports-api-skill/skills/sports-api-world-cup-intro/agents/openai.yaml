@@ -1,0 +1,4 @@
+interface:
+  display_name: "世界杯赛事介绍"
+  short_description: "调用世界杯赛事介绍接口"
+  default_prompt: "使用 $sports-api-world-cup-intro 处理世界杯赛事介绍请求。"

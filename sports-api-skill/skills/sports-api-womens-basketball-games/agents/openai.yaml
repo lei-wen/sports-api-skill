@@ -1,0 +1,4 @@
+interface:
+  display_name: "女篮世界杯赛程"
+  short_description: "调用女篮世界杯赛程接口"
+  default_prompt: "使用 $sports-api-womens-basketball-games 处理女篮世界杯赛程请求。"

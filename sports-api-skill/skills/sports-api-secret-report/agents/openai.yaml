@@ -1,0 +1,4 @@
+interface:
+  display_name: "密报"
+  short_description: "调用密报接口"
+  default_prompt: "使用 $sports-api-secret-report 处理密报请求。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "别名与翻译"
+  short_description: "调用别名与翻译接口"
+  default_prompt: "使用 $sports-api-match-alias-translation 处理别名与翻译请求。"
