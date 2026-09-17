@@ -1,0 +1,4 @@
+interface:
+  display_name: "球员主页"
+  short_description: "调用球员主页接口"
+  default_prompt: "使用 $sports-api-player-home 处理球员主页请求。"

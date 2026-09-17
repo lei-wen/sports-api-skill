@@ -1,6 +1,6 @@
 # 安装与运行环境
 
-本 Skill 遵循 Agent Skills 开放格式。安装时必须复制完整的 `sports-api-skill/` 目录，不能只复制入口 `SKILL.md`，否则总 Skill 无法读取路由表和 44 个接口指南。
+本 Skill 遵循 Agent Skills 开放格式。安装时必须复制完整的 `sports-api-skill/` 目录，不能只复制入口 `SKILL.md`，否则总 Skill 无法读取路由表和 49 个接口指南。
 
 ## 安装位置
 

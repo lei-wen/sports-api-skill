@@ -1,0 +1,4 @@
+interface:
+  display_name: "球员赛程"
+  short_description: "调用球员赛程接口"
+  default_prompt: "使用 $sports-api-player-games 处理球员赛程请求。"

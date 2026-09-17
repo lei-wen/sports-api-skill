@@ -86,11 +86,22 @@
 | 球队统计分析数据 | `sports-api-team-stats` |
 | 球队可查询的转会年份列表 | `sports-api-team-transfer-years` |
 
+## 2.9 球员资料库
+
+| 用户意图 | 接口指南 |
+|---|---|
+| 指定球员的主页聚合数据 | `sports-api-player-home` |
+| 指定球员的赛程、比赛记录或翻页查询 | `sports-api-player-games` |
+| 指定球员的能力、能力值或能力指标 | `sports-api-player-ability` |
+| 球员基本资料 | `sports-api-player-info` |
+| 球员统计分析数据 | `sports-api-player-stats` |
+
 ## 决策边界
 
 - “竞彩赛程”优先路由到 `sports-api-match-list`。
 - 用户明确提到世界杯或女篮世界杯时，优先使用对应专题指南，而不是通用竞猜赛程。
 - 用户明确提供 `teamId` 并询问赛程时，优先使用 `sports-api-team-games`。
+- 用户明确提供 `playerId` 并询问赛程时，优先使用 `sports-api-player-games`；询问能力时使用 `sports-api-player-ability`。
 - 用户要赔率列表时用 `*-odds-*` 列表指南；同时指定公司或 `book_maker_id` 时使用详情指南。
 - 用户要按 ID 查赛果时使用 `sports-api-match-prize-by-id`；按日期、彩种或期次查赛果时使用 `sports-api-match-prize-list`。
 - 仍有两个同等合理的候选项时，不调用接口，先给出编号选项让用户确认。

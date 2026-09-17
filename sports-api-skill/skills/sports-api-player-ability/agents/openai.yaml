@@ -1,0 +1,4 @@
+interface:
+  display_name: "球员能力"
+  short_description: "调用球员能力接口"
+  default_prompt: "使用 $sports-api-player-ability 处理球员能力请求。"

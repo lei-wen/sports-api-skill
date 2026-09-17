@@ -2,7 +2,7 @@
 
 `sports-api-skill` 是遵循 [Agent Skills 开放格式](https://agentskills.io/specification) 的红火体育赛事数据统一入口，可用于 Codex、Claude Code、GitHub Copilot 及其他兼容 Agent Skills 的客户端。
 
-它根据用户的自然语言意图，在 44 个接口指南中选择最匹配的接口，检查必填参数，在参数不足或意图有歧义时先向用户提问，然后调用对应 API。仓库中的 Skill 可以整体安装，无需逐个注册 44 个接口指南。嵌套的 `skills/` 目录作为总 Skill 的附带资源使用，不依赖宿主自动发现嵌套 Skill。
+它根据用户的自然语言意图，在 49 个接口指南中选择最匹配的接口，检查必填参数，在参数不足或意图有歧义时先向用户提问，然后调用对应 API。仓库中的 Skill 可以整体安装，无需逐个注册 49 个接口指南。嵌套的 `skills/` 目录作为总 Skill 的附带资源使用，不依赖宿主自动发现嵌套 Skill。
 
 接口说明来源：[赛事数据接口说明文档](https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe)。源文档当前标记为草稿，本仓库保留其参数命名和大小写。
 
@@ -17,6 +17,7 @@
 | 分析预测 | 专家推荐、推荐详情 |
 | 世界杯/女篮世界杯 | 赛季、赛程、晋级图、积分、榜单 |
 | 球队资料库 | 赛程、转会、球员、统计 |
+| 球员资料库 | 主页、赛程、能力、资料、统计 |
 
 完整意图路由见 [`sports-api-skill/references/routes.md`](sports-api-skill/references/routes.md)。每个接口的 URL、参数类型、必填规则、枚举值和 curl 模板位于 [`sports-api-skill/skills/`](sports-api-skill/skills/) 中对应的接口指南。
 
@@ -235,7 +236,7 @@ sports-api-skill/
     ├── references/installation.md
     ├── references/routes.md
     └── skills/
-        └── 44 个接口指南/
+        └── 49 个接口指南/
 ```
 
 ## 已知文档缺口
@@ -258,7 +259,7 @@ sports-api-skill/
 test -f sports-api-skill/SKILL.md
 test -x scripts/install.sh
 test -x sports-api-skill/scripts/request.sh
-test "$(find sports-api-skill/skills -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')" = "44"
+test "$(find sports-api-skill/skills -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')" = "49"
 ```
 
 如果已安装 [`skills-ref`](https://github.com/agentskills/agentskills/tree/main/skills-ref)，还可以按开放规范验证：

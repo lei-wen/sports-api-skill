@@ -1,0 +1,4 @@
+interface:
+  display_name: "球员资料"
+  short_description: "调用球员资料接口"
+  default_prompt: "使用 $sports-api-player-info 处理球员资料请求。"
