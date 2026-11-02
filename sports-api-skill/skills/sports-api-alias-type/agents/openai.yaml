@@ -1,0 +1,4 @@
+interface:
+  display_name: "别名（类型）"
+  short_description: "按赛事、球队、球员等实体类型及别名文字查询对应主数据记录"
+  default_prompt: "使用 $sports-api-alias-type 根据我提供的实体类型和别名查询信息。"

@@ -1,10 +1,10 @@
 ---
 name: sports-api-skill
-description: 统一路由并调用红火体育赛事数据的 49 个接口。适用于查询竞猜赛程、赛果、比赛详情、指数、情报、推荐、世界杯、女篮世界杯、球队资料或球员资料；根据意图选择一个接口指南，并补问缺失参数。
+description: 统一路由红火体育赛事数据的 53 个接口指南。适用于查询竞猜赛程、赛果、比赛详情、指数、情报、推荐、世界杯、女篮世界杯、球队资料、球员资料、别名或按日期查询赛事资讯；根据意图选择一个接口指南，并补问缺失参数。
 license: Apache-2.0
 metadata:
   author: lei-wen
-  version: "1.2.0"
+  version: "1.3.0"
   display_name_zh: "红火体育赛事数据"
   compatibility: "Requires bundled-file access, outbound HTTPS, environment variables, Bash, and curl; designed for Agent Skills-compatible clients."
 ---
@@ -13,7 +13,7 @@ metadata:
 
 作为红火体育赛事数据接口的统一入口。根据用户意图选择一个最匹配的接口指南，再依照该指南完成参数确认与请求。不要同时加载全部接口指南。
 
-本 Skill 遵循 Agent Skills 开放格式。`skills/` 下的 49 个目录是随总 Skill 打包的接口指南；不要依赖宿主把嵌套目录自动注册成独立 Skill。只要宿主能够读取本 Skill 的附带文件，就按下述相对路径加载所需指南。
+本 Skill 遵循 Agent Skills 开放格式。`skills/` 下的 53 个目录是随总 Skill 打包的接口指南；不要依赖宿主把嵌套目录自动注册成独立 Skill。只要宿主能够读取本 Skill 的附带文件，就按下述相对路径加载所需指南。
 
 ## 路由
 
@@ -25,8 +25,9 @@ metadata:
 - “详情”：可能是推荐详情、指数详情、球队资料或比赛详情数据。
 - “榜单”：可能是世界杯/女篮世界杯的球队榜或球员榜。
 - “赛果”：可能按日期/期次查询，也可能按比赛 ID 查询。
+- “别名”：有别名文字时查通用别名；同时指定实体类型时按类型查询；给出比赛 ID 列表并要关联实体的别名时查比赛别名。若对象或查询方式仍不明确，先澄清。
 
-若用户只是询问支持哪些数据，不调用接口；按 `routes.md` 的九个分组给出简短能力列表。
+若用户只是询问支持哪些数据，不调用接口；按 `routes.md` 的十个分组给出简短能力列表。
 
 ## 下发到接口指南
 

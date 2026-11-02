@@ -18,6 +18,8 @@
 | 世界杯/女篮世界杯 | 赛季、赛程、晋级图、积分、榜单 |
 | 球队资料库 | 赛程、转会、球员、统计 |
 | 球员资料库 | 主页、赛程、能力、资料、统计 |
+| 别名查询 | 按别名文字查询、按实体类型查询、按比赛 ID 批量查询关联实体别名 |
+| 赛事资讯资料库 | 按日期查询赛事资讯及中英文内容 |
 
 完整意图路由见 [`sports-api-skill/references/routes.md`](sports-api-skill/references/routes.md)。每个接口的 URL、参数类型、必填规则、枚举值和 curl 模板位于 [`sports-api-skill/skills/`](sports-api-skill/skills/) 中对应的接口指南。
 

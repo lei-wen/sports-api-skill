@@ -19,7 +19,7 @@
 | 阵容、首发、替补 | `sports-api-match-lineup` |
 | 比赛相关排名、积分排名 | `sports-api-match-ranking` |
 | 比赛直播数据、实时事件 | `sports-api-match-live` |
-| 比赛名称别名、翻译或批量校验 | `sports-api-match-alias-translation` |
+| 旧版比赛名称校验、明确请求 matchInfoChecker（源文档标记暂停，先说明状态） | `sports-api-match-alias-translation` |
 
 ## 2.3 指数
 
@@ -95,6 +95,17 @@
 | 指定球员的能力、能力值或能力指标 | `sports-api-player-ability` |
 | 球员基本资料 | `sports-api-player-info` |
 | 球员统计分析数据 | `sports-api-player-stats` |
+| 根据别名文字查询对应实体，未指定实体类型 | `sports-api-alias` |
+| 根据实体类型（赛事/比赛/球队/球员/裁判/教练/场馆）和别名文字查询 | `sports-api-alias-type` |
+| 根据比赛 ID 列表批量获取关联球队、教练、裁判、场馆的别名 | `sports-api-alias-games` |
+
+三个别名接口沿用源文档 2.9 的章节归属，查询对象不限于球员。
+
+## 2.10 赛事资讯资料库
+
+| 用户意图 | 接口指南 |
+|---|---|
+| 指定日期的赛事资讯、体育新闻、中英文资讯内容 | `sports-api-game-news-date` |
 
 ## 决策边界
 
@@ -104,4 +115,7 @@
 - 用户明确提供 `playerId` 并询问赛程时，优先使用 `sports-api-player-games`；询问能力时使用 `sports-api-player-ability`。
 - 用户要赔率列表时用 `*-odds-*` 列表指南；同时指定公司或 `book_maker_id` 时使用详情指南。
 - 用户要按 ID 查赛果时使用 `sports-api-match-prize-by-id`；按日期、彩种或期次查赛果时使用 `sports-api-match-prize-list`。
+- 用户提供别名文字且明确实体类型时使用 `sports-api-alias-type`；仅提供别名文字时使用 `sports-api-alias`；提供比赛 ID 列表并要关联实体别名时使用 `sports-api-alias-games`。名称为“比赛”的实体类型查询仍属于 `sports-api-alias-type`，不能误当成比赛 ID 查询。
+- 新的别名查询不路由到旧的 `sports-api-match-alias-translation`。该旧接口在源文档中标记为暂停，不作为新接口失败时的回退。
+- 按日期查资讯使用 `sports-api-game-news-date`，不与赛程或赛果混用；缺日期时按该指南补问。
 - 仍有两个同等合理的候选项时，不调用接口，先给出编号选项让用户确认。
