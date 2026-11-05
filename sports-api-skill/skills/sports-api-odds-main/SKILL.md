@@ -30,8 +30,8 @@ description: 调用赛事数据服务的“胜平负、让球、凯利”接口�
 |---|---|---|---|
 | `match_id2` | string | 必填 | 外部/映射比赛 ID |
 | `lottery_id` | integer | 必填 | 竞足 90、竞篮 91、足彩 10 |
-| `odds_type` | integer | 必填 | 1 欧赔、2 亚盘、3 让球、4 大小球 |
-| `filter_type` | integer | 必填 | 1 典型指数、2 大公司、3 交易所、4 欧洲本土 |
+| `odds_type` | integer | 必填 | 1 欧指及凯利（胜平负）、2 亚指（让球、凯利）、3 欧指及凯利（让球）、4 亚指（大小球） |
+| `filter_type` | integer | 必填 | 1 典型指数、2 大公司、3 交易所、4 本土 |
 
 ## 调用模板
 

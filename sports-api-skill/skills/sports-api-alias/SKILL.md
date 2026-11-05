@@ -14,7 +14,7 @@ description: 调用红火赛事数据服务的“别名”接口，根据别名�
 - 生产环境：`https://apic.17honghuoyun.com`
 - 请求体：`multipart/form-data`，使用 curl `--form`；内置脚本使用 `--form-string` 传递文字值。
 
-源文档“请求 URL”写作 `/api/v1/baseAlias`，curl 示例使用 `/api/v1/basealias`，大小写不一致。此指南沿用示例的小写路径，尚未经生产接口验证；若服务端拒绝该路径，报告差异并请接口方确认，不自动切换大小写或调用旧的 `matchInfoChecker`。
+源文档“请求 URL”写作 `/api/v1/baseAlias`，curl 示例使用 `/api/v1/basealias`，大小写不一致。此指南沿用示例的小写路径，尚未经生产接口验证；若服务端拒绝该路径，报告差异并请接口方确认。
 
 ## 鉴权与本地配置
 

@@ -33,16 +33,12 @@ description: 调用赛事数据服务的“赛果开奖（按比赛ID查询）�
 
 ## 调用模板
 
-```bash
-curl --fail-with-body --request POST \
-  "${SPORTS_API_BASE_URL:-https://apic.17honghuoyun.com}/api/v1/matchprizelistbyid" \
-  --header "app-id: $SPORTS_API_APP_ID" \
-  --header "app-secret: $SPORTS_API_APP_SECRET" \
-  --form 'jc_type=<value>' \
-  --form 'matchid2_list=<value>'
-```
+从总 Skill 根目录执行。每个比赛 ID 传一个 `matchid2_list[]` 表单字段，单个 ID 也保留方括号。按参数表同时传入 `jc_type`。
 
-数组参数的具体编码方式应遵循调用方 HTTP 客户端和服务端约定；若服务端拒绝，先对照源文档示例，不要静默改成 JSON 请求体。
+```bash
+scripts/request.sh /api/v1/matchprizelistbyid jc_type=jczq \
+  'matchid2_list[]=2589463' 'matchid2_list[]=2681389'
+```
 
 ## 响应处理
 

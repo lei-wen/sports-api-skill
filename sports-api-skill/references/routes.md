@@ -2,6 +2,8 @@
 
 根据用户的主要对象和动作选择一个接口指南。确定路由后，读取 `skills/<guide-name>/SKILL.md` 获取所需参数，不在本文件重复维护参数定义。嵌套指南是总 Skill 的附带资源，不要求宿主将它们注册为独立 Skill。
 
+维护时以[赛事数据接口说明文档](https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe)为准。每次同步后核对每个有请求定义的接口恰好对应一个指南和一条路由，移除文档已删除的指南和路由。待定章节在接口定义发布后再加入。
+
 ## 2.1 赛事数据
 
 | 用户意图 | 接口指南 |
@@ -10,6 +12,8 @@
 | 某场或某玩法的可选投注项、玩法选项 | `sports-api-match-options` |
 | 按比赛日期或传统足彩期次查询赛果、开奖 | `sports-api-match-prize-list` |
 | 按一个或多个比赛 ID 查询赛果 | `sports-api-match-prize-by-id` |
+| 数字彩最新开奖，如双色球、大乐透、快乐8、七星彩、福彩3D、排列三、排列五 | `sports-api-number-prize-list` |
+| 指定数字彩彩种最近 15 期开奖历史 | `sports-api-number-prize-history` |
 
 ## 2.2 比赛详情
 
@@ -19,7 +23,6 @@
 | 阵容、首发、替补 | `sports-api-match-lineup` |
 | 比赛相关排名、积分排名 | `sports-api-match-ranking` |
 | 比赛直播数据、实时事件 | `sports-api-match-live` |
-| 旧版比赛名称校验、明确请求 matchInfoChecker（源文档标记暂停，先说明状态） | `sports-api-match-alias-translation` |
 
 ## 2.3 指数
 
@@ -29,6 +32,11 @@
 | 总进球数、比分或半全场指数列表 | `sports-api-odds-score` |
 | 某公司的胜平负、让球、凯利、欧赔、亚盘或大小球指数详情 | `sports-api-odds-main-detail` |
 | 某公司的总进球数、比分或半全场指数详情 | `sports-api-odds-score-detail` |
+| 欧指走势、欧赔概率变化、赔率升降公司数、公司风险分布 | `sports-api-odds-europe-trend` |
+| 主客队近 20 场的进球、半场/全场胜平负或常见比分对比 | `sports-api-odds-home-away` |
+| 亚指走势、升降盘、高低水、赢盘率或同盘口历史 | `sports-api-odds-asia-trend` |
+| 必发盈亏、成交量或胜平负各方向的盈亏汇总 | `sports-api-odds-betfair-profit` |
+| 必发大额交易、买卖盘、近 6 小时交易走势或成交明细 | `sports-api-odds-betfair-detail` |
 
 ## 2.4 情报内参
 
@@ -37,16 +45,10 @@
 | 密报 | `sports-api-secret-report` |
 | 内参、比赛分析 | `sports-api-insider-analysis` |
 | 选号分布、投注热度 | `sports-api-pick-distribution` |
-| 交易数据、平台交易比例对比 | `sports-api-trade-ratio` |
 
-## 2.5 分析预测
+## 2.5 专家及内容
 
-| 用户意图 | 接口指南 |
-|---|---|
-| 专家推荐列表 | `sports-api-expert-recommendations` |
-| 专家推荐内容详情 | `sports-api-recommendation-detail` |
-| 牛单推荐列表 | `sports-api-bull-pick-list` |
-| 牛单详情 | `sports-api-bull-pick-detail` |
+接口文档将此分组标为待定。
 
 ## 2.6 世界杯赛事资料
 
@@ -106,6 +108,8 @@
 | 用户意图 | 接口指南 |
 |---|---|
 | 指定日期的赛事资讯、体育新闻、中英文资讯内容 | `sports-api-game-news-date` |
+| 按一个或多个比赛 ID 查询外网文章、新闻或中文资讯 | `sports-api-game-news-external` |
+| 按单个比赛 ID 查询综合情报、伤停、主客队情报和外网资讯 | `sports-api-game-news-report` |
 
 ## 决策边界
 
@@ -113,9 +117,8 @@
 - 用户明确提到世界杯或女篮世界杯时，优先使用对应专题指南，而不是通用竞猜赛程。
 - 用户明确提供 `teamId` 并询问赛程时，优先使用 `sports-api-team-games`。
 - 用户明确提供 `playerId` 并询问赛程时，优先使用 `sports-api-player-games`；询问能力时使用 `sports-api-player-ability`。
-- 用户要赔率列表时用 `*-odds-*` 列表指南；同时指定公司或 `book_maker_id` 时使用详情指南。
-- 用户要按 ID 查赛果时使用 `sports-api-match-prize-by-id`；按日期、彩种或期次查赛果时使用 `sports-api-match-prize-list`。
+- 按机构查赔率列表或单一机构的变化历史时，选择原指数列表或详情接口。查跨机构的概率、水位、升降盘统计时，选择欧指或亚指走势。必发汇总和逐笔明细分别走对应必发接口。
+- 比赛赛果按 ID 使用 `sports-api-match-prize-by-id`，按比赛日期或传统足彩期次使用 `sports-api-match-prize-list`。数字彩使用本表的最新开奖或历史开奖指南。
 - 用户提供别名文字且明确实体类型时使用 `sports-api-alias-type`；仅提供别名文字时使用 `sports-api-alias`；提供比赛 ID 列表并要关联实体别名时使用 `sports-api-alias-games`。名称为“比赛”的实体类型查询仍属于 `sports-api-alias-type`，不能误当成比赛 ID 查询。
-- 新的别名查询不路由到旧的 `sports-api-match-alias-translation`。该旧接口在源文档中标记为暂停，不作为新接口失败时的回退。
-- 按日期查资讯使用 `sports-api-game-news-date`，不与赛程或赛果混用；缺日期时按该指南补问。
+- 按日期查资讯使用 `sports-api-game-news-date`。按比赛查外网文章使用 `sports-api-game-news-external`，需要单场综合情报与资讯时使用 `sports-api-game-news-report`。
 - 仍有两个同等合理的候选项时，不调用接口，先给出编号选项让用户确认。

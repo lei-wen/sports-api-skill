@@ -34,17 +34,14 @@ description: 调用赛事数据服务的“赛果开奖”接口。适用于用�
 
 ## 调用模板
 
+从总 Skill 根目录执行，按彩种选择对应参数。
+
 ```bash
-curl --fail-with-body --request POST \
-  "${SPORTS_API_BASE_URL:-https://apic.17honghuoyun.com}/api/v1/matchprizelist" \
-  --header "app-id: $SPORTS_API_APP_ID" \
-  --header "app-secret: $SPORTS_API_APP_SECRET" \
-  --form 'jc_type=<value>' \
-  --form 'date_list=<value>' \
-  --form 'lottery_no=<value>'
+scripts/request.sh /api/v1/matchprizelist jc_type=jczq 'date_list[]=2026-04-27'
+scripts/request.sh /api/v1/matchprizelist jc_type=ToTo lottery_no=26075
 ```
 
-数组参数的具体编码方式应遵循调用方 HTTP 客户端和服务端约定；若服务端拒绝，先对照源文档示例，不要静默改成 JSON 请求体。
+竞彩足球和竞彩篮球每个日期传一个 `date_list[]` 表单字段。传统足彩仅传对应的 `lottery_no`。
 
 ## 响应处理
 

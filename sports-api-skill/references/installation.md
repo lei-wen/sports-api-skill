@@ -1,6 +1,6 @@
 # 安装与运行环境
 
-本 Skill 遵循 Agent Skills 开放格式。安装时必须复制完整的 `sports-api-skill/` 目录，不能只复制入口 `SKILL.md`，否则总 Skill 无法读取路由表和 53 个接口指南。
+本 Skill 遵循 Agent Skills 开放格式。安装时必须复制完整的 `sports-api-skill/` 目录，不能只复制入口 `SKILL.md`，否则总 Skill 无法读取路由表和 56 个接口指南。
 
 ## 安装位置
 
@@ -31,7 +31,7 @@ export SPORTS_API_BASE_URL='https://apic.17honghuoyun.com'
 
 - 允许访问 `https://apic.17honghuoyun.com`；
 - 如果服务端启用了 IP 白名单，将 Agent 的实际出口 IP 加入允许列表；
-- Bash 与 curl。没有这两个程序时，宿主需要提供等价的 HTTPS 和 `multipart/form-data` 客户端。
+- Bash 与 curl。没有这两个程序时，宿主需要提供等价的 HTTPS 客户端。有表单字段的接口使用 `multipart/form-data`，无参数的数字彩开奖列表使用空请求体。
 
 不要把真实凭据写入仓库、Skill、聊天消息、命令参数或长期日志。
 

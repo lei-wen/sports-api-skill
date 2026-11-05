@@ -10,7 +10,7 @@ description: 调用赛事数据服务的“选号分布”接口。适用于用�
 ## Endpoint
 
 - 方法：`POST`
-- 路径：`/api/v1/MatchInfoPopularity`
+- 路径：`/api/v1/matchInfoPopularity`
 - 生产环境：`https://apic.17honghuoyun.com`
 - 请求体：文档示例使用 `multipart/form-data`，用 curl 的 `--form` 传参。
 
@@ -35,7 +35,7 @@ description: 调用赛事数据服务的“选号分布”接口。适用于用�
 
 ```bash
 curl --fail-with-body --request POST \
-  "${SPORTS_API_BASE_URL:-https://apic.17honghuoyun.com}/api/v1/MatchInfoPopularity" \
+  "${SPORTS_API_BASE_URL:-https://apic.17honghuoyun.com}/api/v1/matchInfoPopularity" \
   --header "app-id: $SPORTS_API_APP_ID" \
   --header "app-secret: $SPORTS_API_APP_SECRET" \
   --form 'match_id2=<value>' \

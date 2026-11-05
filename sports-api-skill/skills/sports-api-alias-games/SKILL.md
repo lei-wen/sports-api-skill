@@ -14,7 +14,7 @@ description: 调用红火赛事数据服务的“别名（比赛）”接口，�
 - 生产环境：`https://apic.17honghuoyun.com`
 - 请求体：`multipart/form-data`，数组使用重复的 `matchid2_list[]` 字段。
 
-源文档“请求 URL”写作 `/api/v1/aliasGames`，curl 示例使用 `/api/v1/aliasgames`，大小写不一致。此指南沿用示例的小写路径，尚未经生产接口验证；若服务端拒绝，报告差异并请接口方确认，不自动切换路径或复用旧的 `matchInfoChecker` 接口。
+源文档“请求 URL”写作 `/api/v1/aliasGames`，curl 示例使用 `/api/v1/aliasgames`，大小写不一致。此指南沿用示例的小写路径，尚未经生产接口验证；若服务端拒绝，报告差异并请接口方确认。
 
 ## 鉴权与本地配置
 

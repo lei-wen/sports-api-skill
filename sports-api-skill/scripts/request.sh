@@ -3,7 +3,7 @@
 set -euo pipefail
 
 usage() {
-  printf 'Usage: %s /api/path key=value [key=value ...]\n' "${0##*/}" >&2
+  printf 'Usage: %s /api/path [key=value ...]\n' "${0##*/}" >&2
 }
 
 if (( $# < 1 )); then
@@ -61,6 +61,11 @@ curl_args=(
   --request POST
   "${base_url}${endpoint}"
 )
+
+# The gateway requires a length even for a POST with no form fields.
+if (( $# == 0 )); then
+  curl_args+=(--header 'Content-Length: 0')
+fi
 
 for field in "$@"; do
   case "$field" in
