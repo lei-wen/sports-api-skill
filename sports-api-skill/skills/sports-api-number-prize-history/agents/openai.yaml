@@ -1,0 +1,4 @@
+interface:
+  display_name: "数字彩历史开奖"
+  short_description: "查询指定数字彩彩种最近 15 期的开奖历史，适用于双色球、大乐透、快乐8、七星彩、福彩3D、排列三和排列五。"
+  default_prompt: "请使用 $sports-api-number-prize-history 查询数字彩历史开奖。"

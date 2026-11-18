@@ -2,7 +2,7 @@
 
 `sports-api-skill` 是遵循 [Agent Skills 开放格式](https://agentskills.io/specification) 的红火体育赛事数据和数字彩开奖的统一入口，可用于 Codex、Claude Code、GitHub Copilot 及其他兼容 Agent Skills 的客户端。
 
-它根据用户的自然语言意图，在 56 个接口指南中选择最匹配的接口，检查必填参数，在参数不足或意图有歧义时先向用户提问，然后调用对应 API。仓库中的 Skill 可以整体安装，无需逐个注册 56 个接口指南。嵌套的 `skills/` 目录作为总 Skill 的附带资源使用，不依赖宿主自动发现嵌套 Skill。
+它根据用户的自然语言意图，在 59 个接口指南中选择最匹配的接口，检查必填参数，在参数不足或意图有歧义时先向用户提问，然后调用对应 API。仓库中的 Skill 可以整体安装，无需逐个注册 59 个接口指南。嵌套的 `skills/` 目录作为总 Skill 的附带资源使用，不依赖宿主自动发现嵌套 Skill。
 
 接口说明来源：[赛事数据接口说明文档](https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe)。源文档当前标记为草稿，本仓库保留其参数命名和大小写。
 
@@ -10,17 +10,17 @@
 
 | 分组 | 能力 |
 |---|---|
-| 赛事数据 | 竞猜赛程、玩法选项、按日期或比赛 ID 查赛果、传统足彩开奖、数字彩最新及历史开奖 |
+| 赛事数据 | 在售竞猜赛程、竞彩足球和竞彩篮球未开售赛程、玩法选项、按日期或比赛 ID 查赛果、传统足彩开奖、北京单场期次及赛果、数字彩最新及历史开奖 |
 | 比赛详情 | 战绩、阵容、排名、直播 |
 | 指数与交易 | 胜平负、让球、凯利、总进球、比分、半全场、欧指与亚指走势、主客对比、必发交易盈亏及明细 |
-| 情报内参 | 密报、内参、选号分布 |
+| 情报内参 | 单场密报、按彩种分页或按更新时间筛选密报列表、内参、选号分布 |
 | 世界杯/女篮世界杯 | 赛季、赛事资料、近期及完整赛程、晋级图、分组积分、球队榜及球员榜 |
 | 球队资料库 | 主页、赛程、球员、资料、统计、转会及可查询年份 |
 | 球员资料库 | 主页、赛程、能力、资料、统计 |
 | 别名查询 | 按别名文字查询、按实体类型查询、按比赛 ID 批量查询关联实体别名 |
 | 赛事资讯资料库 | 按日期查赛事资讯、按比赛查外网文章、查单场情报资讯汇总 |
 
-完整意图路由见 [`sports-api-skill/references/routes.md`](sports-api-skill/references/routes.md)。每个接口的 URL、参数类型、必填规则、枚举值和 curl 模板位于 [`sports-api-skill/skills/`](sports-api-skill/skills/) 中对应的接口指南。
+完整意图路由见 [`sports-api-skill/references/routes.md`](sports-api-skill/references/routes.md)。每个接口的 URL、参数类型、必填规则、枚举值和调用示例位于 [`sports-api-skill/skills/`](sports-api-skill/skills/) 中对应的接口指南。
 
 ## 支持的 Agent
 
@@ -167,6 +167,9 @@ curl --fail-with-body --request POST \
 
 其他接口的请求参数不要凭接口名称猜测。Agent 应先读取所选接口指南，再检查必填项和枚举值。例如：
 
+- 未开售赛程使用 `lottery_id`，竞彩足球为 `90`，竞彩篮球为 `91`。
+- 北京单场赛果可用 `lottery_no` 指定期次，省略时取期次列表第一项。
+- 密报列表使用 `lottery_type` 指定彩种，可用 `update_time` 查询增量。
 - 比赛详情通常需要 `match_id2` 和 `lottery_id`。
 - 球队资料通常需要 `teamId`，部分接口还需要 `seasonId`。
 - 世界杯接口可能需要 `tournamentId` 或 `seasonId`。
@@ -235,7 +238,9 @@ sports-api-skill/
     ├── references/installation.md
     ├── references/routes.md
     └── skills/
-        └── 56 个接口指南/
+        └── 59 个接口指南/
+            ├── SKILL.md
+            └── agents/openai.yaml
 ```
 
 ## 文档同步
@@ -257,7 +262,7 @@ sports-api-skill/
 test -f sports-api-skill/SKILL.md
 test -x scripts/install.sh
 test -x sports-api-skill/scripts/request.sh
-test "$(find sports-api-skill/skills -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')" = "56"
+test "$(find sports-api-skill/skills -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')" = "59"
 ```
 
 如果已安装 [`skills-ref`](https://github.com/agentskills/agentskills/tree/main/skills-ref)，还可以按开放规范验证：

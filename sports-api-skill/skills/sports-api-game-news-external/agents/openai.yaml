@@ -1,0 +1,4 @@
+interface:
+  display_name: "外网资讯"
+  short_description: "按一个或多个竞猜比赛 ID 查询外网赛事资讯、文章原文和中文内容。"
+  default_prompt: "请使用 $sports-api-game-news-external 查询外网资讯。"

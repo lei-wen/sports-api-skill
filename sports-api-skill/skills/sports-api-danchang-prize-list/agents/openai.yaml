@@ -1,0 +1,4 @@
+interface:
+  display_name: "北京单场赛果与期次"
+  short_description: "查询北京单场可选期次，并按期号分页查看各场比分和玩法开奖结果。"
+  default_prompt: "请使用 $sports-api-danchang-prize-list 查询北京单场赛果与期次。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "亚指走势"
+  short_description: "查询指定竞猜比赛的亚指走势，包括升降盘、水位变化、主客队赢盘率及同盘口历史统计。"
+  default_prompt: "请使用 $sports-api-odds-asia-trend 查询亚指走势。"

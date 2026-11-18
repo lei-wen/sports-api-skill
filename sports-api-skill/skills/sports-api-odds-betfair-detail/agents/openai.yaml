@@ -1,0 +1,4 @@
+interface:
+  display_name: "必发交易明细"
+  short_description: "查询指定竞猜比赛的必发交易明细，包括近 10 笔大额交易、最新买卖盘和近 6 小时的成交走势。"
+  default_prompt: "请使用 $sports-api-odds-betfair-detail 查询必发交易明细。"

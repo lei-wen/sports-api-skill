@@ -1,0 +1,4 @@
+interface:
+  display_name: "主客对比"
+  short_description: "查询指定竞猜比赛主客队近 20 场的进球数、半场和全场胜平负、常见比分及面对强弱队的统计。"
+  default_prompt: "请使用 $sports-api-odds-home-away 查询主客对比。"

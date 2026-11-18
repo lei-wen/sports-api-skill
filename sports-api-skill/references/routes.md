@@ -14,6 +14,8 @@
 | 按一个或多个比赛 ID 查询赛果 | `sports-api-match-prize-by-id` |
 | 数字彩最新开奖，如双色球、大乐透、快乐8、七星彩、福彩3D、排列三、排列五 | `sports-api-number-prize-list` |
 | 指定数字彩彩种最近 15 期开奖历史 | `sports-api-number-prize-history` |
+| 北京单场赛果和期次列表 | `sports-api-danchang-prize-list` |
+| 竞彩足球或竞彩篮球的未开售赛程 | `sports-api-game-presale` |
 
 ## 2.2 比赛详情
 
@@ -42,9 +44,10 @@
 
 | 用户意图 | 接口指南 |
 |---|---|
-| 密报 | `sports-api-secret-report` |
+| 指定比赛的密报 | `sports-api-secret-report` |
 | 内参、比赛分析 | `sports-api-insider-analysis` |
 | 选号分布、投注热度 | `sports-api-pick-distribution` |
+| 按彩种、分页或更新时间查询密报列表 | `sports-api-secret-report-list` |
 
 ## 2.5 专家及内容
 

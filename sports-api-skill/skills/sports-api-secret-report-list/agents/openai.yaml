@@ -1,0 +1,4 @@
+interface:
+  display_name: "密报列表"
+  short_description: "按彩种分页查询比赛密报，并可筛选指定时间之后更新的情报。"
+  default_prompt: "请使用 $sports-api-secret-report-list 查询密报列表。"

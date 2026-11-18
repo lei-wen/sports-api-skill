@@ -1,0 +1,4 @@
+interface:
+  display_name: "竞彩未开售赛程"
+  short_description: "按竞彩足球或竞彩篮球查询尚未开售的比赛、开赛时间和对阵双方。"
+  default_prompt: "请使用 $sports-api-game-presale 查询竞彩未开售赛程。"

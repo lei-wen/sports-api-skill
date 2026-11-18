@@ -1,0 +1,4 @@
+interface:
+  display_name: "必发交易盈亏"
+  short_description: "查询指定竞猜比赛的必发交易盈亏、成交量、成交价及胜平负各方向的盈亏指数。"
+  default_prompt: "请使用 $sports-api-odds-betfair-profit 查询必发交易盈亏。"

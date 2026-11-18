@@ -1,0 +1,4 @@
+interface:
+  display_name: "情报资讯汇总"
+  short_description: "按单个竞猜比赛 ID 查询综合情报、伤停、主客队情报和外网资讯汇总。"
+  default_prompt: "请使用 $sports-api-game-news-report 查询情报资讯汇总。"

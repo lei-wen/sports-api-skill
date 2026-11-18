@@ -1,0 +1,4 @@
+interface:
+  display_name: "欧指走势"
+  short_description: "查询指定竞猜比赛的欧指走势，包括欧赔概率、初终赔概率变化、赔率升降公司数和公司风险分布。"
+  default_prompt: "请使用 $sports-api-odds-europe-trend 查询欧指走势。"
