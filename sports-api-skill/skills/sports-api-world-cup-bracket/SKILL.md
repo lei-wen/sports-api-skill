@@ -46,4 +46,35 @@ curl --fail-with-body --request POST \
 
 响应通用结构为 `{"errcode": 0, "msg": "success", "data": ...}`。只有 `errcode` 为 `0` 才视为业务成功。常见错误：`10001` 参数缺失或无效；`10002` 认证失败；`10003` 无权限或出口 IP 未放行。
 
+### 响应字段映射
+
+对应《赛事数据接口说明文档》2.6.4「淘汰赛晋级图」。类型沿用字段表；有明确差异时同时标注示例类型。路径中的 `[]` 表示数组元素，`[{…}]` 表示动态键。
+
+| 响应字段路径 | 文档类型 | 字段说明 |
+|---|---|---|
+| `data` | 示例 array | 接口业务数据 |
+| `data[].awayScore` | `integer` | 客队进球数 |
+| `data[].awayTeamId` | `integer` | 客队ID |
+| `data[].awayTeamLogo` | `string` | 客队图标 |
+| `data[].awayTeamName` | `string` | 客队名称 |
+| `data[].bracketId` | `integer` | 分类ID |
+| `data[].bracketName` | `array`；示例 string | 分类名称 |
+| `data[].gameIds` | `array`；示例 string | 比赛列表 |
+| `data[].gameList` | `array` | 比赛详情 |
+| `data[].gameList[].gameId` | `integer` | 比赛ID |
+| `data[].gameList[].gameState` | `string`；示例 integer | 比赛结果（半全场） |
+| `data[].gameList[].gameTime` | `string` | 比赛时间 |
+| `data[].gameList[].homeTeamScores` | `string` | 主队得分详情，格式：[上半场，下半场，加时赛，完场，---] |
+| `data[].gameList[].awayTeamScores` | `string` | 客队得分详情，格式：[上半场，下半场，加时赛，完场，---] |
+| `data[].gameList[].gameStatus` | `string` | N-未开赛 L-进行中 F-已结束 A-中断 |
+| `data[].groupId` | `integer` | 赛事名称 |
+| `data[].homeScore` | `integer` | 主队进球数 |
+| `data[].homeTeamId` | `integer` | 主队ID |
+| `data[].homeTeamLogo` | `string` | 主队图标 |
+| `data[].homeTeamName` | `string` | 主队名称 |
+| `data[].roundId` | `integer` | 轮次ID |
+| `data[].roundName` | `string` | 轮次名称 |
+| `data[].seasonId` | `integer` | 赛季ID |
+| `data[].winnerTeamId` | `integer` | 获胜球队ID |
+
 来源：[https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe](https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe)

@@ -47,4 +47,36 @@ curl --fail-with-body --request POST \
 
 响应通用结构为 `{"errcode": 0, "msg": "success", "data": ...}`。只有 `errcode` 为 `0` 才视为业务成功。常见错误：`10001` 参数缺失或无效；`10002` 认证失败；`10003` 无权限或出口 IP 未放行。
 
+### 响应字段映射
+
+对应《赛事数据接口说明文档》2.8.1「球队赛程」。类型沿用字段表；有明确差异时同时标注示例类型。路径中的 `[]` 表示数组元素，`[{…}]` 表示动态键。
+
+| 响应字段路径 | 文档类型 | 字段说明 |
+|---|---|---|
+| `data` | 示例 object | 接口业务数据 |
+| `data.scheduleList` | `array` | 球队赛程列表（按比赛时间正序） |
+| `data.scheduleList[].awayTeamId` | `integer` | 客队id |
+| `data.scheduleList[].awayTeamLogo` | `string` | 客队logo |
+| `data.scheduleList[].awayTeamName` | `string` | 客队名称 |
+| `data.scheduleList[].gameId` | `integer` | 比赛id |
+| `data.scheduleList[].gameState` | `integer` | 比赛状态 |
+| `data.scheduleList[].gameStateDesc` | `string` | 比赛状态描述 |
+| `data.scheduleList[].gameTime` | `string` | 比赛时间 |
+| `data.scheduleList[].groupId` | `integer` | 赛季分组 |
+| `data.scheduleList[].groupName` | `string`；示例可为 null | 赛季分组名称 |
+| `data.scheduleList[].homeTeamId` | `integer` | 主队id |
+| `data.scheduleList[].homeTeamLogo` | `string` | 主队logo |
+| `data.scheduleList[].homeTeamName` | `string` | 主队名称 |
+| `data.scheduleList[].phaseId` | `integer` | 赛季阶段 |
+| `data.scheduleList[].phaseName` | `string` | 赛季阶段名称 |
+| `data.scheduleList[].roundId` | `integer` | 赛季轮次 |
+| `data.scheduleList[].roundName` | `string` | 赛季轮次名称 |
+| `data.scheduleList[].score` | `string`；示例可为 null | 比分 |
+| `data.scheduleList[].tournamentId` | `integer` | 赛事id |
+| `data.scheduleList[].tournamentName` | `string` | 赛事名称 |
+| `data.scheduleList[].weekDay` | `string` | 周几 |
+| `data.seasonList` | `array` | 赛季列表（倒序） |
+| `data.seasonList[].seasonId` | `integer` | 赛季id |
+| `data.seasonList[].seasonNameYear` | `string` | 赛季名称年份 |
+
 来源：[https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe](https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe)

@@ -47,4 +47,27 @@ curl --fail-with-body --request POST \
 
 响应通用结构为 `{"errcode": 0, "msg": "success", "data": ...}`。只有 `errcode` 为 `0` 才视为业务成功。常见错误：`10001` 参数缺失或无效；`10002` 认证失败；`10003` 无权限或出口 IP 未放行。
 
+### 响应字段映射
+
+对应《赛事数据接口说明文档》2.6.3「近期赛程」。类型沿用字段表；有明确差异时同时标注示例类型。路径中的 `[]` 表示数组元素，`[{…}]` 表示动态键。
+
+| 响应字段路径 | 文档类型 | 字段说明 |
+|---|---|---|
+| `data` | 示例 array | 接口业务数据 |
+| `data[].awayTeamId` | `integer` | 客队id |
+| `data[].awayTeamLogo` | `string` | 客队logo |
+| `data[].awayTeamName` | `string` | 客队名称 |
+| `data[].awayTeamScore` | `string` | 客队比分 |
+| `data[].gameId` | `integer` | 比赛id |
+| `data[].gameState` | `integer` | 比赛状态，详见**状态说明 |
+| `data[].gameStateDesc` | `string` | 比赛状态描述 |
+| `data[].gameTime` | `string` | 比赛时间 |
+| `data[].homeTeamId` | `integer` | 主队id |
+| `data[].homeTeamLogo` | `string` | 主队logo |
+| `data[].homeTeamName` | `string` | 主队名称 |
+| `data[].homeTeamScore` | `string` | 主队比分 |
+| `data[].gameStatus` | `string` | N-未开赛 L-进行中 F-已结束 A-中断 |
+| `data[].tournamentId` | `string`；示例 integer | 赛事ID |
+| `data[].tournamentName` | `string` | 赛事名称 |
+
 来源：[https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe](https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe)

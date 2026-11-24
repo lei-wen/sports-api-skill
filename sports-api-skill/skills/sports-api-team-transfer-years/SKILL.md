@@ -46,4 +46,13 @@ curl --fail-with-body --request POST \
 
 响应通用结构为 `{"errcode": 0, "msg": "success", "data": ...}`。只有 `errcode` 为 `0` 才视为业务成功。常见错误：`10001` 参数缺失或无效；`10002` 认证失败；`10003` 无权限或出口 IP 未放行。
 
+### 响应字段映射
+
+对应《赛事数据接口说明文档》2.8.7「球队球员转会年份列表」。该节提供响应示例，以下字段与类型按示例整理。
+
+| 响应字段路径 | 文档类型 | 字段说明 |
+|---|---|---|
+| `data` | `array` | 可查询的转会年份列表 |
+| `data[]` | `integer` | 转会年份（公历年） |
+
 来源：[https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe](https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe)

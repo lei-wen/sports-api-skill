@@ -48,4 +48,40 @@ curl --fail-with-body --request POST \
 
 响应通用结构为 `{"errcode": 0, "msg": "success", "data": ...}`。只有 `errcode` 为 `0` 才视为业务成功。常见错误：`10001` 参数缺失或无效；`10002` 认证失败；`10003` 无权限或出口 IP 未放行。
 
+### 响应字段映射
+
+对应《赛事数据接口说明文档》2.8.2「球队球员转会」。类型沿用字段表；有明确差异时同时标注示例类型。路径中的 `[]` 表示数组元素，`[{…}]` 表示动态键。
+
+| 响应字段路径 | 文档类型 | 字段说明 |
+|---|---|---|
+| `data` | 示例 object | 接口业务数据 |
+| `data.transferIn` | `array` | 转入列表 |
+| `data.transferIn[].inTeamId` | `integer` | 转入球队id |
+| `data.transferIn[].inTeamName` | `string` | 转入球队名称 |
+| `data.transferIn[].nationality` | `string` | 球员国籍 |
+| `data.transferIn[].outTeamId` | `integer` | 转出球队id |
+| `data.transferIn[].outTeamName` | `string` | 转出球队名称 |
+| `data.transferIn[].playerAge` | `integer` | 球员年龄 |
+| `data.transferIn[].playerId` | `integer` | 球员id |
+| `data.transferIn[].playerLogo` | `string` | 球员头像logo |
+| `data.transferIn[].playerName` | `string` | 球员名称 |
+| `data.transferIn[].position` | `string` | 球员位置 |
+| `data.transferIn[].transferPrice` | `string`；示例可为 null | 转会费 |
+| `data.transferIn[].transferTime` | `string` | 转会时间 |
+| `data.transferIn[].transferType` | `integer` | 转会类型 |
+| `data.transferOut` | `array` | 赛季列表（倒序） |
+| `data.transferOut[].inTeamId` | `integer` | 转入球队id |
+| `data.transferOut[].inTeamName` | `string` | 转入球队名称 |
+| `data.transferOut[].nationality` | `string` | 球员国籍 |
+| `data.transferOut[].outTeamId` | `integer` | 转出球队id |
+| `data.transferOut[].outTeamName` | `string` | 转出球队名称 |
+| `data.transferOut[].playerAge` | `integer` | 球员年龄 |
+| `data.transferOut[].playerId` | `integer` | 球员id |
+| `data.transferOut[].playerLogo` | `string` | 球员头像logo |
+| `data.transferOut[].playerName` | `string` | 球员名称 |
+| `data.transferOut[].position` | `string` | 球员位置 |
+| `data.transferOut[].transferPrice` | `string`；示例可为 null | 转会费 |
+| `data.transferOut[].transferTime` | `string` | 转会时间 |
+| `data.transferOut[].transferType` | `integer` | 转会类型 |
+
 来源：[https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe](https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe)

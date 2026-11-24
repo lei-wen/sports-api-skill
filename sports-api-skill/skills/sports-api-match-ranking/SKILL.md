@@ -48,4 +48,31 @@ curl --fail-with-body --request POST \
 
 响应通用结构为 `{"errcode": 0, "msg": "success", "data": ...}`。只有 `errcode` 为 `0` 才视为业务成功。常见错误：`10001` 参数缺失或无效；`10002` 认证失败；`10003` 无权限或出口 IP 未放行。
 
+### 响应字段映射
+
+对应《赛事数据接口说明文档》2.2.3「排名」。类型沿用字段表；有明确差异时同时标注示例类型。路径中的 `[]` 表示数组元素，`[{…}]` 表示动态键。
+
+| 响应字段路径 | 文档类型 | 字段说明 |
+|---|---|---|
+| `data` | 示例 object | 接口业务数据 |
+| `data.latestRanking` | `array` | 最新排名 |
+| `data.latestRanking[].rankingBoList[].draws` | `integer` | 平场次数 |
+| `data.latestRanking[].rankingBoList[].gamesPlayed` | `integer` | 比赛场次数 |
+| `data.latestRanking[].rankingBoList[].goalsAgainst` | `integer` | 比赛失球数 |
+| `data.latestRanking[].rankingBoList[].goalsScored` | `integer` | 比赛进球数 |
+| `data.latestRanking[].rankingBoList[].losses` | `integer` | 负场次数 |
+| `data.latestRanking[].rankingBoList[].point` | `integer` | 得分 |
+| `data.latestRanking[].rankingBoList[].rankingNum` | `integer` | 排名 |
+| `data.latestRanking[].rankingBoList[].wins` | `integer` | 胜场次数 |
+| `data.latestRanking[].rankingBoList[].teamId` | `integer` | 球队ID |
+| `data.latestRanking[].rankingBoList[].teamName` | `string` | 球队名 |
+| `data.latestRanking[].rankingBoList[].tournamentName` | `string` | 联赛名 |
+| `data.homeRanking` | `array` | 主场排名 |
+| `data.awayRanking` | `array` | 客场排名 |
+| `data.intro` | `string` | 联赛介绍 |
+| `data.matchId` | `string` | 比赛ID2 |
+| `data.rule` | `string` | 排名规则说明 |
+| `data.tournamentId` | `string`；示例 integer | 联赛ID |
+| `data.tournamentName` | `string` | 联赛名称 |
+
 来源：[https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe](https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe)

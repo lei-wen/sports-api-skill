@@ -50,4 +50,23 @@ curl --fail-with-body --request POST \
 
 响应通用结构为 `{"errcode": 0, "msg": "success", "data": ...}`。只有 `errcode` 为 `0` 才视为业务成功。常见错误：`10001` 参数缺失或无效；`10002` 认证失败；`10003` 无权限或出口 IP 未放行。
 
+### 响应字段映射
+
+对应《赛事数据接口说明文档》2.3.2「总进球数、比分、半全场」。类型沿用字段表；有明确差异时同时标注示例类型。路径中的 `[]` 表示数组元素，`[{…}]` 表示动态键。
+
+| 响应字段路径 | 文档类型 | 字段说明 |
+|---|---|---|
+| `data` | 示例 object | 接口业务数据 |
+| `data.oddsAiToBaseBoList1` | `array` | 此数组数据对应玩法： / 总进球数 / 比分（胜） / 半全场（胜） |
+| `data.oddsAiToBaseBoList1[].bookmakerName` | `string` | 机构名称 |
+| `data.oddsAiToBaseBoList1[].bookmakerId` | `integer` | 机构ID |
+| `data.oddsAiToBaseBoList1[].oddsBo3` | `object` | 数据项 |
+| `data.oddsAiToBaseBoList1[].oddsBo3.oddsItems` | `array` | 玩法详细数据，参考【3.2 竞猜玩法说明】 |
+| `data.oddsAiToBaseBoList1[].oddsBo3.oddsItems[].name` | `string` | 玩法选项名称 |
+| `data.oddsAiToBaseBoList1[].oddsBo3.oddsItems[].code` | `string` | 玩法选项编码 |
+| `data.oddsAiToBaseBoList1[].oddsBo3.oddsItems[].change` | `integer`；示例可为 null | 变化情况： / 1：上升 / -1：下降 / 0：持平 |
+| `data.oddsAiToBaseBoList1[].oddsBo3.oddsItems[].odds` | `string` | 赔率数据 |
+| `data.oddsAiToBaseBoList2` | `array` | 此数组数据对应玩法： / 比分（平） / 半全场（平） |
+| `data.oddsAiToBaseBoList3` | `array` | 此数组数据对应玩法： / 比分（负） / 半全场（负） |
+
 来源：[https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe](https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe)

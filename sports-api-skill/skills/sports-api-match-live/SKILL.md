@@ -48,4 +48,31 @@ curl --fail-with-body --request POST \
 
 响应通用结构为 `{"errcode": 0, "msg": "success", "data": ...}`。只有 `errcode` 为 `0` 才视为业务成功。常见错误：`10001` 参数缺失或无效；`10002` 认证失败；`10003` 无权限或出口 IP 未放行。
 
+### 响应字段映射
+
+对应《赛事数据接口说明文档》2.2.4「直播」。类型沿用字段表；有明确差异时同时标注示例类型。路径中的 `[]` 表示数组元素，`[{…}]` 表示动态键。
+
+| 响应字段路径 | 文档类型 | 字段说明 |
+|---|---|---|
+| `data` | 示例 object | 接口业务数据 |
+| `data.statistics` | `object` | 比赛数据 |
+| `data.statistics.home` | `object` | 主队数据 |
+| `data.statistics.guest` | `object` | 客队数据 |
+| `data.info` | `object` | 重要事件 |
+| `data.info.awayTeamId` | `integer` | 客队ID |
+| `data.info.awayTeamName` | `string` | 客队名称 |
+| `data.info.gameEventList` | `array` | 事件列表 |
+| `data.info.gameId` | `integer` | 比赛ID |
+| `data.info.homeTeamId` | `integer` | 主队ID |
+| `data.info.homeTeamName` | `string` | 主队名称 |
+| `data.event` | `string`；示例 array | 文字直播 |
+| `data.event[]` | `object` | 序号（分组KEY） |
+| `data.event[].descChs` | `string` | 直播说明 |
+| `data.event[].eventId` | `integer` | 事件ID |
+| `data.event[].eventScore` | `string` | 比分 |
+| `data.event[].eventType` | `integer` | 类型ID |
+| `data.event[].eventTypeName` | `string` | 类型说明 |
+| `data.event[].gameStateName` | `string` | 比赛状态 |
+| `data.event[].teamSide` | `integer` | 事件所属球队：1-主队，2-客队 |
+
 来源：[https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe](https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe)

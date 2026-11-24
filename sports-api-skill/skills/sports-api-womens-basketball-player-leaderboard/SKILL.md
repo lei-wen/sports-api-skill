@@ -48,4 +48,22 @@ curl --fail-with-body --request POST \
 
 响应通用结构为 `{"errcode": 0, "msg": "success", "data": ...}`。只有 `errcode` 为 `0` 才视为业务成功。常见错误：`10001` 参数缺失或无效；`10002` 认证失败；`10003` 无权限或出口 IP 未放行。
 
+### 响应字段映射
+
+对应《赛事数据接口说明文档》2.7.8「球员榜」。类型沿用字段表；有明确差异时同时标注示例类型。路径中的 `[]` 表示数组元素，`[{…}]` 表示动态键。
+
+| 响应字段路径 | 文档类型 | 字段说明 |
+|---|---|---|
+| `data` | 示例 array | 接口业务数据 |
+| `data[].type` | `integer` | 类型 |
+| `data[].name` | `string` | 类型名称 |
+| `data[].playerStatList` | `array` | 球员统计 |
+| `data[].playerStatList[].average` | `number` | 场均 |
+| `data[].playerStatList[].playerId` | `integer` | 球员ID |
+| `data[].playerStatList[].playerName` | `string` | 球员名 |
+| `data[].playerStatList[].rank` | `integer` | 排名 |
+| `data[].playerStatList[].teamId` | `integer` | 球队id |
+| `data[].playerStatList[].teamName` | `string`；示例可为 null | 球队名 |
+| `data[].playerStatList[].total` | `integer`；示例可为 null | 总计 |
+
 来源：[https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe](https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe)

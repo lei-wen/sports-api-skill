@@ -44,4 +44,26 @@ curl --fail-with-body --request POST \
 
 响应通用结构为 `{"errcode": 0, "msg": "success", "data": ...}`。只有 `errcode` 为 `0` 才视为业务成功。常见错误：`10001` 参数缺失或无效；`10002` 认证失败；`10003` 无权限或出口 IP 未放行。
 
+### 响应字段映射
+
+对应《赛事数据接口说明文档》2.9.1「球员主页」。类型沿用字段表；有明确差异时同时标注示例类型。路径中的 `[]` 表示数组元素，`[{…}]` 表示动态键。
+
+| 响应字段路径 | 文档类型 | 字段说明 |
+|---|---|---|
+| `data` | 示例 object | 接口业务数据 |
+| `data.age` | `integer` | 年龄 |
+| `data.avatar` | `string` | 头像 |
+| `data.foot` | `string` | 惯用脚 |
+| `data.height` | `integer` | 身高(cm) |
+| `data.nameChs` | `string` | 中文名称 |
+| `data.nameEng` | `string` | 英文名称 |
+| `data.nationality` | `string` | 国籍 |
+| `data.playerId` | `integer` | 球员id |
+| `data.playerWorth` | `string` | 身价 |
+| `data.position` | `string` | 位置 |
+| `data.regionLogo` | `string` | 国家或区域logo |
+| `data.shirtNumber` | `string` | 球衣号码 |
+| `data.teamName` | `string` | 所在球队 |
+| `data.weight` | `integer` | 体重(kg) |
+
 来源：[赛事数据接口说明文档 2.9.1](https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe)

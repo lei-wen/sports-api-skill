@@ -46,4 +46,42 @@ curl --fail-with-body --request POST \
 
 响应通用结构为 `{"errcode": 0, "msg": "success", "data": ...}`。只有 `errcode` 为 `0` 才视为业务成功。常见错误：`10001` 参数缺失或无效；`10002` 认证失败；`10003` 无权限或出口 IP 未放行。
 
+### 响应字段映射
+
+对应《赛事数据接口说明文档》2.7.2「赛事资料」。类型沿用字段表；有明确差异时同时标注示例类型。路径中的 `[]` 表示数组元素，`[{…}]` 表示动态键。
+
+| 响应字段路径 | 文档类型 | 字段说明 |
+|---|---|---|
+| `data` | 示例 object | 接口业务数据 |
+| `data.backgroundColor` | `string`；示例可为 null | 背景颜色 |
+| `data.createTime` | `string` | 创建时间 |
+| `data.crewGender` | `integer`；示例可为 null | 参赛者性别 |
+| `data.crewType` | `integer`；示例可为 null | 参赛者类型 |
+| `data.crewYouth` | `integer`；示例可为 null | 参赛者是否是青年 |
+| `data.descChs` | `string`；示例可为 null | 中文描述 |
+| `data.descEng` | `string`；示例可为 null | 英文描述 |
+| `data.enableState` | `integer` | 启用状态 |
+| `data.id` | `integer` | 唯一编号 |
+| `data.iocCode` | `string`；示例可为 null | 奥林匹克 |
+| `data.isoCode` | `string`；示例可为 null | 国际标准 |
+| `data.logo` | `string` | logo图片 |
+| `data.nameChs` | `string` | 中文全称 |
+| `data.nameChsAbbr` | `string` | 中文简称 |
+| `data.nameEng` | `string` | 英文全称 |
+| `data.nameEngAbbr` | `string` | 英文简称 |
+| `data.operateState` | `integer` | 维护状态 |
+| `data.operateTime` | `string`；示例可为 null | 操作时间 |
+| `data.regionId` | `integer` | 区域 |
+| `data.regionName` | `string`；示例可为 null | 区域名称 |
+| `data.signature` | `string`；示例可为 null | 签名编号 |
+| `data.source` | `integer` | 数据来源 |
+| `data.sportId` | `integer` | 运动 |
+| `data.sportName` | `string` | 运动名称 |
+| `data.textColor` | `string`；示例可为 null | 文字颜色 |
+| `data.tournamentLevel` | `integer`；示例可为 null | 赛事级别 |
+| `data.tournamentSort` | `integer`；示例可为 null | 赛事排序 |
+| `data.tournamentType` | `integer` | 赛事类型 |
+| `data.updateTime` | `string` | 更新时间 |
+| `data.website` | `string`；示例可为 null | 官方网址 |
+
 来源：[https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe](https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe)

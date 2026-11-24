@@ -52,4 +52,42 @@ curl --fail-with-body --request POST \
 
 响应通用结构为 `{"errcode": 0, "msg": "success", "data": ...}`。只有 `errcode` 为 `0` 才视为业务成功。常见错误：`10001` 参数缺失或无效；`10002` 认证失败；`10003` 无权限或出口 IP 未放行。
 
+### 响应字段映射
+
+对应《赛事数据接口说明文档》2.3.3「指数详情（胜平负、让球、凯利）」。类型沿用字段表；有明确差异时同时标注示例类型。路径中的 `[]` 表示数组元素，`[{…}]` 表示动态键。
+
+| 响应字段路径 | 文档类型 | 字段说明 |
+|---|---|---|
+| `data` | 示例 object | 接口业务数据 |
+| `data.changes` | `array` | 指数变化数组 |
+| `data.changes[].odds1` | `string` | 当前赔率 - 胜 |
+| `data.changes[].odds2` | `string` | 当前赔率 - 平 |
+| `data.changes[].odds3` | `string` | 当前赔率 - 负 |
+| `data.changes[].handicap` | `string` | 当前让球盘口 |
+| `data.changes[].changeHandicap` | `string` | 让球盘口变化 |
+| `data.changes[].changeOdds1` | `integer` | 赔率（胜）变动状态： / 1 -上升 / 0 - 持平 / -1 - 下降 |
+| `data.changes[].changeOdds2` | `integer` | 赔率（平）变动状态： / 1 -上升 / 0 - 持平 / -1 - 下降 |
+| `data.changes[].changeOdds3` | `integer` | 赔率（负）变动状态： / 1 -上升 / 0 - 持平 / -1 - 下降 |
+| `data.changes[].updateTime` | `string` | 指数更新时间 |
+| `data.firstOddsHisSameStats` | `array` | 初始指数赔率相同的统计 |
+| `data.firstOddsHisSameStats[].allCount` | `integer` | 比赛总场次 |
+| `data.firstOddsHisSameStats[].drawCount` | `integer` | 赛果为平的场次 |
+| `data.firstOddsHisSameStats[].drawPercent` | `integer` | 赛果为平的场次比例 |
+| `data.firstOddsHisSameStats[].lossCount` | `integer` | 赛果为主队负的场次 |
+| `data.firstOddsHisSameStats[].lossPercent` | `integer` | 赛果为主队负的场次比例 |
+| `data.firstOddsHisSameStats[].winCount` | `integer` | 赛果为主队胜的场次 |
+| `data.firstOddsHisSameStats[].winPercent` | `integer` | 赛果为主队胜的场次比例 |
+| `data.firstOddsHisSameStats[].tournamentId` | `string`；示例可为 null | 赛事ID |
+| `data.firstOddsHisSameStats[].tournamentName` | `string` | 赛事名称 |
+| `data.lastOddsHisSameStats` | `array` | 最终指数赔率相同的统计 |
+| `data.lastOddsHisSameStats[].allCount` | `integer` | 比赛总场次 |
+| `data.lastOddsHisSameStats[].drawCount` | `integer` | 赛果为平的场次 |
+| `data.lastOddsHisSameStats[].drawPercent` | `integer` | 赛果为平的场次比例 |
+| `data.lastOddsHisSameStats[].lossCount` | `integer` | 赛果为主队负的场次 |
+| `data.lastOddsHisSameStats[].lossPercent` | `integer` | 赛果为主队负的场次比例 |
+| `data.lastOddsHisSameStats[].winCount` | `integer` | 赛果为主队胜的场次 |
+| `data.lastOddsHisSameStats[].winPercent` | `integer` | 赛果为主队胜的场次比例 |
+| `data.lastOddsHisSameStats[].tournamentId` | `string`；示例可为 null | 赛事ID |
+| `data.lastOddsHisSameStats[].tournamentName` | `string` | 赛事名称 |
+
 来源：[https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe](https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe)

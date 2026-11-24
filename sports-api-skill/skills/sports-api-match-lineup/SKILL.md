@@ -48,4 +48,46 @@ curl --fail-with-body --request POST \
 
 响应通用结构为 `{"errcode": 0, "msg": "success", "data": ...}`。只有 `errcode` 为 `0` 才视为业务成功。常见错误：`10001` 参数缺失或无效；`10002` 认证失败；`10003` 无权限或出口 IP 未放行。
 
+### 响应字段映射
+
+对应《赛事数据接口说明文档》2.2.2「阵容」。类型沿用字段表；有明确差异时同时标注示例类型。路径中的 `[]` 表示数组元素，`[{…}]` 表示动态键。
+
+| 响应字段路径 | 文档类型 | 字段说明 |
+|---|---|---|
+| `data` | 示例 object | 接口业务数据 |
+| `data.aId` | `integer` | 客队ID |
+| `data.aName` | `string` | 客队名 |
+| `data.awayAvgAge` | `integer` | 客队平均年龄 |
+| `data.awayAvgHeight` | `integer` | 客队平均身高 |
+| `data.awayCard` | `array` | 客队球员红黄牌情况 |
+| `data.awayCoach` | `string` | 客队教练 |
+| `data.awayFormation` | `string` | 客队阵容 |
+| `data.awayInjury` | `array` | 客队预计伤停球员名单 |
+| `data.awayInjuryPrice` | `string` | 客队伤停球员身价 |
+| `data.awayPrice` | `string` | 客队总身价 |
+| `data.awayStarter` | `array` | 客队首发人员名单 |
+| `data.awayStarterAvgAge` | `integer` | 客队首发平均年龄 |
+| `data.awayStarterAvgHeight` | `integer` | 客队首发平均身高 |
+| `data.awayStarterPrice` | `string` | 客队首发球员身价 |
+| `data.awaySubstitute` | `array` | 客队替补球员名单 |
+| `data.awaySubstitutePrice` | `string` | 客队替补球员身价 |
+| `data.hId` | `integer` | 客队ID |
+| `data.hName` | `string` | 客队名 |
+| `data.homeAvgAge` | `integer` | 客队平均年龄 |
+| `data.homeAvgHeight` | `integer` | 客队平均身高 |
+| `data.homeCard` | `array` | 客队球员红黄牌情况 |
+| `data.homeCoach` | `string` | 主队教练 |
+| `data.homeFormation` | `string` | 主队阵容 |
+| `data.homeInjury` | `array` | 主队预计伤停球员名单 |
+| `data.homeInjuryPrice` | `string` | 主队伤停球员身价 |
+| `data.homePrice` | `string` | 主队总身价 |
+| `data.homeStarter` | `array` | 主队首发人员名单 |
+| `data.homeStarterAvgAge` | `integer` | 主队首发平均年龄 |
+| `data.homeStarterAvgHeight` | `integer` | 主队首发平均身高 |
+| `data.homeStarterPrice` | `string` | 主队首发球员身价 |
+| `data.homeSubstitute` | `array` | 主队替补球员名单 |
+| `data.homeSubstitutePrice` | `string` | 主队替补球员身价 |
+| `data.createTime` | `string` | isCurrentMatch=1，主客队阵容最后更新时间 / isCurrentMatch=0，主客队阵容上一场的最后更新时间 |
+| `data.isCurrentMatch` | `string` | 是否本场阵容 1：是 0：上一场 |
+
 来源：[https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe](https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe)

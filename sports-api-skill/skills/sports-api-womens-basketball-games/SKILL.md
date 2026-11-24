@@ -46,4 +46,54 @@ curl --fail-with-body --request POST \
 
 响应通用结构为 `{"errcode": 0, "msg": "success", "data": ...}`。只有 `errcode` 为 `0` 才视为业务成功。常见错误：`10001` 参数缺失或无效；`10002` 认证失败；`10003` 无权限或出口 IP 未放行。
 
+### 响应字段映射
+
+对应《赛事数据接口说明文档》2.7.6「赛程」。类型沿用字段表；有明确差异时同时标注示例类型。路径中的 `[]` 表示数组元素，`[{…}]` 表示动态键。
+
+| 响应字段路径 | 文档类型 | 字段说明 |
+|---|---|---|
+| `data` | 示例 array | 接口业务数据 |
+| `data[].awayTeamId` | `integer` | 客场球队 |
+| `data[].awayTeamName` | `string` | 客场球队名称 |
+| `data[].awayTeamRank` | `string`；示例可为 null | 客队排名 |
+| `data[].awayTeamScores` | `string` | 客队比分 |
+| `data[].coverage` | `string` | 是否有动画、情报、阵容 |
+| `data[].createTime` | `string` | 创建时间 |
+| `data[].enableState` | `integer` | 启用状态 |
+| `data[].gameState` | `integer` | 比赛状态 |
+| `data[].gameTime` | `string` | 比赛时间 |
+| `data[].groupId` | `integer` | 赛季分组 |
+| `data[].groupName` | `string`；示例可为 null | 赛季分组名称 |
+| `data[].homeTeamId` | `integer` | 主场球队 |
+| `data[].homeTeamName` | `string` | 主场球队名称 |
+| `data[].homeTeamRank` | `string`；示例可为 null | 主队排名 |
+| `data[].homeTeamScores` | `string` | 主队比分 |
+| `data[].humidity` | `string`；示例可为 null | 湿度 |
+| `data[].id` | `integer` | 唯一编号 |
+| `data[].mainRefereeId` | `integer`；示例可为 null | 主裁判 |
+| `data[].mainRefereeName` | `string`；示例可为 null | 主裁判名称 |
+| `data[].neaturalState` | `integer` | 中立场状态 |
+| `data[].operateState` | `integer` | 维护状态 |
+| `data[].operateTime` | `string`；示例可为 null | 操作时间 |
+| `data[].phaseId` | `integer` | 赛季阶段 |
+| `data[].phaseName` | `string` | 赛季阶段名称 |
+| `data[].pressure` | `string`；示例可为 null | 气压 |
+| `data[].roundId` | `integer` | 赛季轮次 |
+| `data[].roundName` | `string`；示例可为 null | 赛季轮次名称 |
+| `data[].seasonId` | `integer` | 赛季 |
+| `data[].seasonName` | `string` | 赛季名称 |
+| `data[].signature` | `string`；示例可为 null | 签名编号 |
+| `data[].source` | `integer` | 数据来源 |
+| `data[].sportId` | `integer` | 运动类型 |
+| `data[].sportName` | `string` | 运动类型名称 |
+| `data[].temperature` | `string`；示例可为 null | 气温 |
+| `data[].tournamentId` | `integer` | 赛事 |
+| `data[].tournamentName` | `string` | 赛事名称 |
+| `data[].updateTime` | `string` | 更新时间 |
+| `data[].venueId` | `integer`；示例可为 null | 场馆 |
+| `data[].venueName` | `string`；示例可为 null | 场馆名称 |
+| `data[].viewerNum` | `integer`；示例可为 null | 观众数 |
+| `data[].weather` | `integer`；示例可为 null | 气象 |
+| `data[].wind` | `string`；示例可为 null | 风速 |
+
 来源：[https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe](https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe)

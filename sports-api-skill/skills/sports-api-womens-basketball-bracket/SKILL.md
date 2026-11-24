@@ -46,4 +46,43 @@ curl --fail-with-body --request POST \
 
 响应通用结构为 `{"errcode": 0, "msg": "success", "data": ...}`。只有 `errcode` 为 `0` 才视为业务成功。常见错误：`10001` 参数缺失或无效；`10002` 认证失败；`10003` 无权限或出口 IP 未放行。
 
+### 响应字段映射
+
+对应《赛事数据接口说明文档》2.7.4「晋级图」。类型沿用字段表；有明确差异时同时标注示例类型。路径中的 `[]` 表示数组元素，`[{…}]` 表示动态键。
+
+| 响应字段路径 | 文档类型 | 字段说明 |
+|---|---|---|
+| `data` | 示例 array | 接口业务数据 |
+| `data[].awayScore` | `integer` | 客队比分 |
+| `data[].awayTeamId` | `integer` | 客队id |
+| `data[].awayTeamLogo` | `string` | 客队logo |
+| `data[].awayTeamName` | `string` | 客队名称 |
+| `data[].bracketId` | `integer` | 对阵图id |
+| `data[].bracketName` | `string` | 对阵图名称 |
+| `data[].childrenIds` | `string`；示例可为 null | 连线上一对阵id |
+| `data[].endTime` | `string`；示例可为 null | 对阵图结束时间 |
+| `data[].gameIds` | `string` | 对阵关联的比赛id |
+| `data[].groupId` | `integer` | 对阵图分组id |
+| `data[].homeScore` | `integer` | 主队比分 |
+| `data[].homeTeamId` | `integer` | 主队id |
+| `data[].homeTeamLogo` | `string` | 主队logo |
+| `data[].homeTeamName` | `string` | 主队名称 |
+| `data[].parentIds` | `string` | 连线下一对阵id |
+| `data[].roundId` | `integer` | 对阵阶段id |
+| `data[].roundName` | `string` | 对阵阶段名称 |
+| `data[].seasonId` | `integer` | 赛季id |
+| `data[].startTime` | `string`；示例可为 null | 对阵图开始时间 |
+| `data[].stateId` | `integer` | 状态说明 0-占位，1-未开始，2-进行中，3-完成 |
+| `data[].typeId` | `integer` | 赛制说明 1-单败淘汰赛，2-双败淘汰赛 |
+| `data[].upId` | `integer` | 对阵id |
+| `data[].upSort` | `integer` | 排序 |
+| `data[].winnerTeamId` | `integer` | 胜利队id |
+| `data[].gameList` | `array` | 比赛信息 |
+| `data[].gameList[].awayTeamScores` | `string` | 客队比分 |
+| `data[].gameList[].gameId` | `integer` | 比赛id |
+| `data[].gameList[].gameState` | `integer` | 比赛状态 |
+| `data[].gameList[].gameTime` | `string` | 比赛时间 |
+| `data[].gameList[].homeTeamScores` | `string` | 主队比分 |
+| `data[].gameList[].reverse` | `integer` | 是否颠倒比分 0-否，1-是 |
+
 来源：[https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe](https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe)

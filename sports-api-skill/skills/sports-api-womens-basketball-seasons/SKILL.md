@@ -46,4 +46,29 @@ curl --fail-with-body --request POST \
 
 响应通用结构为 `{"errcode": 0, "msg": "success", "data": ...}`。只有 `errcode` 为 `0` 才视为业务成功。常见错误：`10001` 参数缺失或无效；`10002` 认证失败；`10003` 无权限或出口 IP 未放行。
 
+### 响应字段映射
+
+对应《赛事数据接口说明文档》2.7.1「赛季列表」。类型沿用字段表；有明确差异时同时标注示例类型。路径中的 `[]` 表示数组元素，`[{…}]` 表示动态键。
+
+| 响应字段路径 | 文档类型 | 字段说明 |
+|---|---|---|
+| `data` | 示例 array | 接口业务数据 |
+| `data[].beginTime` | `string` | 开始时间 |
+| `data[].createTime` | `string` | 创建时间 |
+| `data[].enableState` | `integer` | 启用状态 |
+| `data[].endTime` | `string` | 结束时间 |
+| `data[].id` | `integer` | 赛季ID（seasonID） |
+| `data[].nameChs` | `string` | 中文全称 |
+| `data[].nameChsAbbr` | `string`；示例可为 null | 中文简称 |
+| `data[].nameEng` | `string`；示例可为 null | 英文全称 |
+| `data[].nameEngAbbr` | `string`；示例可为 null | 英文简称 |
+| `data[].operateState` | `integer` | 维护状态 |
+| `data[].operateTime` | `string`；示例可为 null | 操作时间 |
+| `data[].signature` | `string`；示例可为 null | 签名编号 |
+| `data[].source` | `integer` | 数据来源 |
+| `data[].tournamentId` | `integer` | 赛事ID |
+| `data[].tournamentName` | `string` | 赛事名称 |
+| `data[].updateTime` | `string` | 更新时间 |
+| `data[].yearTime` | `string` | 年份时间(赛季年) |
+
 来源：[https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe](https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe)

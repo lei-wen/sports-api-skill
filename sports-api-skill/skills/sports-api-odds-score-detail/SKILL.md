@@ -52,4 +52,28 @@ curl --fail-with-body --request POST \
 
 响应通用结构为 `{"errcode": 0, "msg": "success", "data": ...}`。只有 `errcode` 为 `0` 才视为业务成功。常见错误：`10001` 参数缺失或无效；`10002` 认证失败；`10003` 无权限或出口 IP 未放行。
 
+### 响应字段映射
+
+对应《赛事数据接口说明文档》2.3.4「指数详情（总进球数、比分、半全场）」。类型沿用字段表；有明确差异时同时标注示例类型。路径中的 `[]` 表示数组元素，`[{…}]` 表示动态键。
+
+示例包含 `oddsAiToBaseBo1`、`oddsAiToBaseBo2` 和 `oddsAiToBaseBo3`。各分支中同名字段按所属对象读取。
+
+| 响应字段路径 | 文档类型 | 字段说明 |
+|---|---|---|
+| `data` | 示例 object | 接口业务数据 |
+| `data.oddsAiToBaseBo1` | `object` | 指数变化数组 |
+| `data.oddsAiToBaseBo1.oddDetails` | `array` | 时间序列明细 |
+| `data.oddsAiToBaseBo1.oddDetails[].oddsItems` | `array` | 该时间点下的选项列表 |
+| `data.oddsAiToBaseBo1.oddDetails[].oddsItems[].change` | `int` | 该选项相对上一时间点的变动方向（1/-1/0） |
+| `data.oddsAiToBaseBo1.oddDetails[].oddsItems[].code` | `string`；示例 integer | 玩法项编码：总进球 90030~90037；比分 9005xx/90050/90051/90053；半全场 90040x/90041x/90043x |
+| `data.oddsAiToBaseBo1.oddDetails[].oddsItems[].name` | `string` | 玩法项名称（如 0/1/…/7+ 、 1-0 、 胜负 ） |
+| `data.oddsAiToBaseBo1.oddDetails[].oddsItems[].odds` | `string` | 赔率 |
+| `data.oddsAiToBaseBo1.oddDetails[].bookmakerId` | `string` | 公司机构ID |
+| `data.oddsAiToBaseBo1.oddDetails[].handicap` | `string` | 盘口 |
+| `data.oddsAiToBaseBo2` | `object` | 指数变化数组2 |
+| `data.oddsAiToBaseBo3` | `object` | 指数变化数组3 |
+| `data.oddsAiToBaseBo1.bookmakerId` | 示例 string | 第一组指数对应的公司 ID |
+| `data.oddsAiToBaseBo2.bookmakerId` | 示例 string | 第二组指数对应的公司 ID |
+| `data.oddsAiToBaseBo3.bookmakerId` | 示例 string | 第三组指数对应的公司 ID |
+
 来源：[https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe](https://jnjr8fzspd.feishu.cn/wiki/KugUwOiMziGWqQkNPngcttsTnoe)
